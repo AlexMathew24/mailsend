@@ -2,22 +2,23 @@ package com.data.mailssend;
 
 public class Data
 {
-    private long id;
-    private String name;
-    private  String description;
-    public Data(long id,String name,String description){
-        this.id=id;
-        this.name=name;
-        this.description=description;
+    //------------change ||sql dependency
+    private long userId;
+    private String forename;
+    private  String roleFlag;
+    public Data(long userId,String forename,String roleFlag){
+        this.userId=userId;
+        this.forename=forename;
+        this.roleFlag=roleFlag;
 
     }
     public  long getId(){
-        return id;
+        return userId;
     }
     public String getName(){
-        return name;
+        return forename;
     }
     public String getDescription(){
-        return description;
+        return roleFlag;
     }
 }

@@ -13,12 +13,14 @@ public class DataDAO {
         try(PreparedStatement statement=connection.prepareStatement(query);
             ResultSet resultSet=statement.executeQuery()){
             while(resultSet.next()){
-                long id=resultSet.getLong("id");
-                String name=resultSet.getString("name");
-                String descrption=resultSet.getString("descrption");
+
+                //------------change ||sql dependency
+                long userId=resultSet.getLong("user_id");
+                String forename=resultSet.getString("forename");
+                String roleFlag=resultSet.getString("role_flag");
 //                MailssendApplication.Data data =new MailssendApplication.Data(id,name,descrption);
 //                dataList.add(data);
-                Data data =new Data(id,name,descrption);
+                Data data =new Data(userId,forename,roleFlag);
                 dataList.add(data);
             }
         }

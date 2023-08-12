@@ -14,38 +14,26 @@ public class WorkbookCreator {
         Sheet sheet = workbook.createSheet("Data");
         createHederRow(sheet);
         populateDataRows(sheet,dataList);
-
+        System.out.println("1---1");
         return workbook;
 
     }
+    //------------change ||sql dependency
 
     private static void createHederRow(Sheet sheet){
         Row headerRow=sheet.createRow(0);
-        String[] header={"ID","Name","descrption"};
+        String[] header={"userID","Name","lob flag"};
         for(int i=0;i<header.length;i++){
             Cell cell=headerRow.createCell(i);
             cell.setCellValue(header[i]);
+            System.out.println(i);
         }
     }
-//    private  static  void populateDataRows(Sheet sheet,List<MailssendApplication.Data> dataList){
-//        for(int i=0;i<dataList.size();i++){
-//            MailssendApplication.Data data =dataList.get(i);
-//            Row dataRow=sheet.createRow(i+1);
-//
-//            Cell idCell= dataRow.createCell(0);
-//            idCell.setCellValue(data.getId());
-//
-//            Cell nameCell= dataRow.createCell(1);
-//            nameCell.setCellValue(data.getName());
-//
-//            Cell descriptionCell= dataRow.createCell(2);
-//            descriptionCell.setCellValue(data.getDescrption());
-//
-//
-//        }
+
 private  static  void populateDataRows(Sheet sheet,List<Data> dataList) {
       int rowIndex=1;
       for(Data data: dataList){
+
           Row dataRow=sheet.createRow(rowIndex++);
           dataRow.createCell(0).setCellValue(data.getId());
           dataRow.createCell(1).setCellValue(data.getName());
